@@ -6,11 +6,11 @@ import style from '../../assets/css/components/button/square';
 
 const Square = (props) =>{
 
-    const {text, customizeTextContainer, customizeTextStyle} = props;
+    const {text, customizeTextContainer, customizeTextStyle, onClickHandle} = props;
 
     return(
         <View style={style.container}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onClickHandle}>
                 <View style={style.button}>
                     
                     <View style={customizeTextContainer? customizeTextContainer : style.textContainer}>

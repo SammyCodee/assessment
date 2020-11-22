@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, SafeAreaView, Image, TextInput, TouchableOpacity } from "react-native";
 import style from '../../assets/css/pages/login/login';
+import { NavigationContainer } from '@react-navigation/native';
 
 import logo from '../../assets/images/pages/login/logo-header.png';
 import PanelLocator from '../../assets/images/pages/login/panelLocator.png';
@@ -8,13 +9,21 @@ import PanelLocator from '../../assets/images/pages/login/panelLocator.png';
 import LoginButton from '../../components/button/square';
 
 class Login extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
         this.state = {
             userID:'',
             password:''
         };
+    }
+
+    onClickLogin = (route) => {
+
+        const {navigation} = this.props;
+
+        navigation.navigate(route);
+        
     }
 
     render(){
@@ -97,12 +106,13 @@ class Login extends Component{
                                     <TextInput
                                         style={style.input}
                                         placeholder={'Password'}
-                                        value={userID}
+                                        value={password}
                                         onChangeText={(text)=> {
                                             this.setState({
                                                 password: text
                                             })
                                         }}
+                                        secureTextEntry={true}
                                     />
                                 </View>
                             </View>
@@ -124,6 +134,7 @@ class Login extends Component{
                                         text={'LOGIN'}
                                         customizeTextContainer={style.loginButton}
                                         customizeTextStyle={style.loginButtonText}
+                                        onClickHandle={()=>this.onClickLogin('Dashboard')}
                                     />
                                 </View>
                                 
