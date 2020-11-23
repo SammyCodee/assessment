@@ -132,7 +132,7 @@ const login = StyleSheet.create({
         paddingHorizontal:'4%'
     },
     loginButtonText:{
-        color:'white',
+        color:colors.loginButtonText,
         fontSize:hp(2)
     },
     signUpContainer:{

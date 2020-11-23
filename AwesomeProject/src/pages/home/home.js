@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, Image, Alert, TouchableOpacity, FlatList } from "react-native";
 import style from '../../assets/css/pages/home/home';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
 
 import hamburgerImage from '../../assets/images/pages/home/menu.png';
 import logo from '../../assets/images/pages/home/logo-header.png';
@@ -15,7 +16,7 @@ import ShopCard from '../../components/card/shop';
 class Home extends Component{
     constructor(props){
         super(props);
-
+        
         let dataList1 = [
             {
                 contentText:'dummy 1',
@@ -67,6 +68,12 @@ class Home extends Component{
         );
     }
 
+    onClickNavigate = (route) => {
+        const { navigation } = this.props;
+        navigation.navigate(route);
+
+    }
+
     render(){
         
         const {dataList1} = this.state;
@@ -85,7 +92,7 @@ class Home extends Component{
                                 <View style={style.headerTopLeftImageContainer}>
                                     
                                     <View style={style.menuImageContainer}>
-                                        <TouchableOpacity>
+                                        <TouchableOpacity onPress={()=>this.onClickNavigate('Menu')}>
                                             <Image
                                                 style={style.headerImage}
                                                 source={hamburgerImage}
@@ -238,4 +245,8 @@ class Home extends Component{
     }
 }
 
-export default Home;
+export default function(props){
+    const navigation = useNavigation();
+
+    return <Home {...props} navigation={navigation} />;
+};

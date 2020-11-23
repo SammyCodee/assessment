@@ -13,6 +13,7 @@ const login = {
     inputBackground:'white',
     forgetPasswordText:'blue',
     loginButton:'#D31145',
+    loginButtonText:'white',
     signUpLeftText:'black',
     signUpRightText:'blue',
     copyRightText:'black',

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, SafeAreaView, Image, TextInput, TouchableOpacity } from "react-native";
 import style from '../../assets/css/pages/login/login';
-import { NavigationContainer } from '@react-navigation/native';
 
 import logo from '../../assets/images/pages/login/logo-header.png';
 import PanelLocator from '../../assets/images/pages/login/panelLocator.png';
@@ -11,7 +10,7 @@ import LoginButton from '../../components/button/square';
 class Login extends Component{
     constructor(props){
         super(props);
-
+        
         this.state = {
             userID:'',
             password:''
