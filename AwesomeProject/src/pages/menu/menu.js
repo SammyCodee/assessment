@@ -44,6 +44,11 @@ class Menu extends Component{
         navigation.goBack();
     }
 
+    onClickNavigate = (route) => {
+        const {navigation} = this.props;
+        navigation.navigate(route);
+    }
+
     render(){
 
         const closeIcon = <FontAwesomeIcon icon={ faTimes } color={'white'} size={hp(2)}/>
@@ -79,7 +84,7 @@ class Menu extends Component{
                         <View style={style.bodyTopContainer}>
 
                             <View style={style.categoryContainer}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={()=>this.onClickNavigate('Profile')}>
                                     <View style={style.categorySubContainer}>
                                         <View style={style.categoryLeftContainer}>
                                             <Text style={style.categoryText} numberOfLines={1} ellipsizeMode="tail">

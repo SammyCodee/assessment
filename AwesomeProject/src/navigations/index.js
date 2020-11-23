@@ -7,6 +7,7 @@ import LoginScreen from '../pages/login/login';
 import DashboardScreen from '../pages/dashboard/dashboard';
 import HomeScreen from '../pages/home/home';
 import MenuScreen from '../pages/menu/menu';
+import ProfileScreen from '../pages/profile/profile';
 
 const Stack = createStackNavigator();
 
@@ -25,7 +26,7 @@ function Index() {
                 component={DashboardScreen}
                 options={{headerShown: false}}
             />
-            
+
             <Stack.Screen 
                 name="Home" 
                 component={HomeScreen}
@@ -35,6 +36,12 @@ function Index() {
             <Stack.Screen 
                 name="Menu" 
                 component={MenuScreen}
+                options={{headerShown: false}}
+            />
+
+            <Stack.Screen 
+                name="Profile" 
+                component={ProfileScreen}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>
