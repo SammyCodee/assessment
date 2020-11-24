@@ -7,6 +7,9 @@ const login = StyleSheet.create({
     container:{
         flex:1,
     },
+    keyboardAvoidingView:{
+        flex:1
+    },
     subContainer:{
         flex:1,
     },

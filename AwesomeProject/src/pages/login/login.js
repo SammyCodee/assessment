@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, SafeAreaView, Image, TextInput, TouchableOpacity, Linking } from "react-native";
+import { KeyboardAvoidingView, Platform, View, Text, SafeAreaView, Image, TextInput, TouchableOpacity, Linking } from "react-native";
 import style from '../../assets/css/pages/login/login';
 
 import logo from '../../assets/images/pages/login/logo-header.png';
@@ -57,6 +57,11 @@ class Login extends Component{
 
         return(
             <SafeAreaView style={style.container}>
+                <KeyboardAvoidingView
+                    behavior={Platform.OS == "ios" ? "padding" : "height"}
+                    style={style.keyboardAvoidingView}
+                >
+
                 <View style={style.subContainer}>
                     <View style={style.header}>
 
@@ -192,6 +197,7 @@ class Login extends Component{
                         </View>
                     </View>
                 </View>
+                </KeyboardAvoidingView>
             </SafeAreaView>
             
         )
