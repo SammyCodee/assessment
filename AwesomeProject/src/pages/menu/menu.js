@@ -173,9 +173,7 @@ class Menu extends Component{
                     </View>
 
                     <View style={style.footer}>
-                        <View style={style.footerTopContainer}>
-
-                        </View>
+                        <View style={style.footerTopContainer}/>
 
                         <View style={style.footerBottomContainer}>
                             <LogoutButton

@@ -1,6 +1,8 @@
 
 const shop = {
-    textContainer:'white',
+    container:'white',
+    titleText:'black',
+    imageDetailText:'black',
     text:'blue'
 }
 

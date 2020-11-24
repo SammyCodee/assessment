@@ -7,7 +7,8 @@ const square = StyleSheet.create({
     container:{
         height:'100%',
         width:'100%',
-        borderRadius:hp(5),
+        borderRadius:hp(1),
+        backgroundColor:colors.container,
         ...Platform.select({
             ios:{
                 shadowOffset:{
@@ -24,22 +25,57 @@ const square = StyleSheet.create({
     imageContainer:{
         height:'80%',
         width:'100%',
+    },
+    imageBackground:{
+        height:'100%',
+        width:'100%',
+    },
+    imageStyle:{
+        borderTopLeftRadius:hp(1),
+        borderTopRightRadius:hp(1),
+        resizeMode:'stretch'
+    },
+    imageContentContainer:{
+        height:'100%',
+        width:'100%',
+        padding:'2%'
+    },
+    imageTitleContainer:{
+        height:'50%',
+        width:'100%',
         justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'orange'
+    },
+    imageTitleText:{
+        fontFamily:FontStyle.bold,
+        fontSize:hp(1.5),
+        color:colors.titleText,
+    },
+    imageDetailContainer:{
+        height:'50%',
+        width:'100%',
+    },
+    imageDetailText:{
+        fontFamily:FontStyle.bold,
+        fontSize:hp(1.2),
+        color:colors.imageDetailText,
     },
     textContainer:{
         height:'20%',
         width:'100%',
+        borderBottomLeftRadius:hp(1),
+        borderBottomRightRadius:hp(1),
+    },
+    textSubContainer:{
+        height:'100%',
+        width:'100%',
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:colors.textContainer
     },
     text:{
         fontFamily:FontStyle.bold,
         fontSize:hp(1.5),
         color:colors.text,
-        paddingHorizontal:'2%'
+        paddingHorizontal:'1%'
     }
 })
 

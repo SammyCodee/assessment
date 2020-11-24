@@ -1,56 +1,51 @@
 import React, { Component } from "react";
-import { View, Text, Image, Alert, TouchableOpacity, FlatList } from "react-native";
+import { View, Text, Image, Alert, TouchableOpacity, FlatList, Linking } from "react-native";
 import style from '../../assets/css/pages/home/home';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios';
 
 import hamburgerImage from '../../assets/images/pages/home/menu.png';
 import logo from '../../assets/images/pages/home/logo-header.png';
 import notification from '../../assets/images/pages/home/notification.png';
+import MissionImage from '../../assets/images/pages/home/mission.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
 import ShopCard from '../../components/card/shop';
+import LongCard from '../../components/card/long';
 
 class Home extends Component{
     constructor(props){
         super(props);
-        
-        let dataList1 = [
+
+        const dataList2 = [
             {
-                contentText:'dummy 1',
-                text:'Card 1'
+                img: MissionImage,
+                title: 'Keep Up With Your Weekly Mission',
+                detail: 'Check out the progress of your mission.',
+                buttonText:'View Progress'
             },
             {
-                contentText:'dummy 1 dummy 2',
-                text:'Card 2'
-            },
-            {
-                text:'Card 3'
-            },
-            {
-                text:'Card 4'
-            },
-            {
-                text:'Card 5'
+                img: MissionImage,
+                title: 'Keep Up With Your Weekly Mission',
+                detail: 'Check out the progress of your mission.',
+                buttonText:'View Progress'
             }
         ]
 
         this.state = {
-            dataList1: dataList1
+            dataList1: [],
+            dataList2: dataList2
         };
     }
 
-    renderSection1Card = (data) => {
-    
-        return(
-            <View style={style.section1CardContainer}>
-                <ShopCard data={data}/>
-            </View>
-        )
+    onClickHandleCardAction = (url) => {
+        Linking.openURL(url)
+        .catch(err => console.error("Couldn't load page", err));
     }
-        
+
     onClickHandle = () => {
         Alert.alert(
             "Alert Title",
@@ -68,15 +63,56 @@ class Home extends Component{
         );
     }
 
+    renderSection1Card = (data) => {
+    
+        return(
+            <View style={style.section1CardContainer}>
+                <ShopCard data={data} handleOnPress={this.onClickHandleCardAction}/>
+            </View>
+        )
+    }
+        
+    renderSection2Card = (data) => {
+        return(
+            <View style={style.section2CardContainer}>
+                <LongCard data={data} handleOnPress={this.onClickHandle}/>
+            </View>
+        )
+    }
+
     onClickNavigate = (route) => {
         const { navigation } = this.props;
         navigation.navigate(route);
 
     }
 
+    renderTheCard = async() => {
+
+        let res;
+        try{
+            res = await axios.get(`https://stub.od-tech.my/tech-assess/highlights`);
+            
+            const {data} = res;
+            const {highlights} = data;
+
+            this.setState({
+                dataList1: highlights
+            });
+        } catch(err){
+
+            console.log(err);
+
+        }
+        
+    }
+
+    componentDidMount = () => {
+        this.renderTheCard();
+    }
+
     render(){
         
-        const {dataList1} = this.state;
+        const {dataList1, dataList2} = this.state;
 
         const dummyIcon = <FontAwesomeIcon icon={ faCoffee } color={'#D31145'} size={hp(3)}/>
 
@@ -215,6 +251,7 @@ class Home extends Component{
 
                     <View style={style.body}>
                         <View style={style.bodySection1}>
+
                             <View style={style.bodySection1TextContainer}>
                                 <Text style={style.bodySection1Text} numberOfLines={1} ellipsizeMode="tail">
                                     Lorem Ipsum
@@ -222,7 +259,7 @@ class Home extends Component{
                             </View>
 
                             <View style={style.bodySection1CardContainer}>
-                                <View style={{flex:1}}>
+                                <View style={style.bodySection1CardSubContainer}>
                                     <FlatList
                                         data={dataList1}
                                         horizontal={true}
@@ -230,11 +267,28 @@ class Home extends Component{
                                         keyExtractor={(item, index) => index.toString()}
                                     />
                                 </View>
-                                
                             </View>
+
                         </View>
 
                         <View style={style.bodySection2}>
+
+                            <View style={style.bodySection2TextContainer}>
+                                <Text style={style.bodySection2Text} numberOfLines={1} ellipsizeMode="tail">
+                                    Lorem Ipsum
+                                </Text>
+                            </View>
+
+                            <View style={style.bodySection2CardContainer}>
+                                <View style={style.bodySection2CardSubContainer}>
+                                    <FlatList
+                                        data={dataList2}
+                                        horizontal={true}
+                                        renderItem={this.renderSection2Card}
+                                        keyExtractor={(item, index) => index.toString()}
+                                    />
+                                </View>
+                            </View>
 
                         </View>
                     </View>

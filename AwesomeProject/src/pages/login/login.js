@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, SafeAreaView, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, SafeAreaView, Image, TextInput, TouchableOpacity, Linking } from "react-native";
 import style from '../../assets/css/pages/login/login';
 
 import logo from '../../assets/images/pages/login/logo-header.png';
@@ -23,6 +23,12 @@ class Login extends Component{
 
         navigation.navigate(route);
         
+    }
+
+    onClickSignUp = () => {
+        const url = 'https://stub.od-tech.my/';
+        Linking.openURL(url)
+        .catch(err => console.error("Couldn't load page", err));
     }
 
     render(){
@@ -146,7 +152,7 @@ class Login extends Component{
                                         New User? 
                                     </Text>
                                     
-                                    <TouchableOpacity>
+                                    <TouchableOpacity onPress={()=>this.onClickSignUp()}>
                                         <Text style={style.signUpRightText}>
                                             Sign up here
                                         </Text>

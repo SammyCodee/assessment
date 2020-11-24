@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { SafeAreaView,View, Text, Image, Alert, TouchableOpacity } from "react-native";
 import style from '../../assets/css/pages/profile/profile';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import axios from 'axios';
 
 import notification from '../../assets/images/pages/profile/notification.png';
 import userImage from '../../assets/images/pages/profile/user.png';
@@ -16,7 +17,7 @@ class Profile extends Component{
         super(props);
 
         this.state = {
-            
+            data:{}
         };
     }
 
@@ -42,9 +43,36 @@ class Profile extends Component{
         );
     }
 
+    renderProfileData = async() => {
+        let res;
+
+        try{
+
+            res = await axios.get(`https://stub.od-tech.my/tech-assess/profile`);
+            const {data} = res;
+            this.setState({
+                data:data
+            });
+        } catch(err){
+
+            console.log(err);
+
+        }
+    }
+
+    componentDidMount = () => {
+        this.renderProfileData();
+    }
+
     render(){
 
         const arrowIcon = <FontAwesomeIcon icon={ faArrowLeft } color={'white'} size={hp(2)}/>
+
+        const {data} = this.state;
+
+        let contactNumber = data.mobileNo;
+        let email = data.email;
+        let userName = data.name;
 
         return(
             <SafeAreaView style={style.safeArea}>
@@ -99,7 +127,7 @@ class Profile extends Component{
 
                             <View style={style.userNameContainer}>
                                 <Text style={style.userNameText} numberOfLines={1} ellipsizeMode="tail">
-                                    Bruce Wayne
+                                    {userName}
                                 </Text>
                             </View>
                         </View>
@@ -119,7 +147,7 @@ class Profile extends Component{
 
                                     <View style={style.categoryDetailTextContainer}>
                                         <Text style={style.categoryDetailText} numberOfLines={1} ellipsizeMode="tail">
-                                            6012345677
+                                            {contactNumber}
                                         </Text>
                                     </View>
 
@@ -137,7 +165,7 @@ class Profile extends Component{
 
                                     <View style={style.categoryDetailTextContainer}>
                                         <Text style={style.categoryDetailText} numberOfLines={1} ellipsizeMode="tail">
-                                            iam@batman.com
+                                            {email}
                                         </Text>
                                     </View>
 
@@ -155,7 +183,7 @@ class Profile extends Component{
 
                                     <View style={style.categoryDetailTextContainer}>
                                         <Text style={style.categoryDetailText} numberOfLines={1} ellipsizeMode="tail">
-                                            Batman123
+                                            {userName}
                                         </Text>
                                     </View>
 

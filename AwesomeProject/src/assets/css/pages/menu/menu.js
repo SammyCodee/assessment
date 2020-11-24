@@ -49,7 +49,7 @@ const menu = StyleSheet.create({
         alignItems:'center',
     },
     body:{
-        height:'70%',
+        height:'80%',
         width:'100%',
         padding:'4%',
     },
@@ -130,16 +130,16 @@ const menu = StyleSheet.create({
         resizeMode:'contain'
     },
     footer:{
-        height:'20%',
+        height:'10%',
         width:'100%',
         padding:'4%',
     },
     footerTopContainer:{
-        height:'50%',
+        height:'10%',
         width:'100%',
     },
     footerBottomContainer:{
-        height:'50%',
+        height:'90%',
         width:'100%',
     },
     logoutButton:{

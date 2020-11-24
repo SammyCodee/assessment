@@ -5,7 +5,8 @@ const home = {
     headerRightText:'white',
     linkContainer:'white',
     linkText:'black',
-    bodySection1Text:'black'
+    bodySection1Text:'black',
+    bodySection2Text:'black'
 }
 
  export default home;

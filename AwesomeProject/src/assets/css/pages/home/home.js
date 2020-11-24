@@ -136,7 +136,6 @@ const login = StyleSheet.create({
         height:'70%',
         width:'100%',
         paddingLeft:'4%',
-        borderWidth:1
     },
     bodySection1:{
         height:'45%',
@@ -155,20 +154,41 @@ const login = StyleSheet.create({
     bodySection1CardContainer:{
         height:'88%',
         width:'100%',
-        borderColor:'blue',
-        borderWidth:1
+    },
+    bodySection1CardSubContainer:{
+        flex:1,
     },
     section1CardContainer:{
-        height:'80%',
-        width:'100%',
-        paddingRight:'5%'
+        height:'90%',
+        flex:1,
+        paddingRight:'2.5%'
     },
     bodySection2:{
         height:'55%',
         width:'100%',
-        // borderWidth:1,
-        // borderColor:'blue'
-    }
+        paddingBottom:'5%',
+    },
+    bodySection2TextContainer:{
+        height:'10%',
+        width:'100%',
+    },
+    bodySection2Text:{
+        fontFamily:FontStyle.bold,
+        fontSize:hp(2),
+        color:colors.bodySection2Text
+    },
+    bodySection2CardContainer:{
+        height:'90%',
+        width:'100%',
+    },
+    bodySection2CardSubContainer:{
+        flex:1,
+    },
+    section2CardContainer:{
+        height:'90%',
+        flex:1,
+        paddingRight:'8%'
+    },
 })
 
 export default login;
