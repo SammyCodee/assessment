@@ -7,6 +7,8 @@ import PanelLocator from '../../assets/images/pages/login/panelLocator.png';
 
 import LoginButton from '../../components/button/square';
 
+import test_api from '../../api/test_api';
+
 class Login extends Component{
     constructor(props){
         super(props);
@@ -15,17 +17,31 @@ class Login extends Component{
             userID:'',
             password:''
         };
+        
     }
 
     componentDidMount = () => {
     
     }
 
-    onClickLogin = (route) => {
+    onClickLogin = async () => {
 
-        const {navigation} = this.props;
+        let res;
 
-        navigation.navigate(route);
+        try{
+            let userID = this.state.userID;
+            let password = this.state.password;
+
+            res = await test_api.login(userID, password);
+
+            const {navigation} = this.props;
+            navigation.navigate('Dashboard');
+
+        }catch(err){
+
+            console.log(err);
+
+        }
         
     }
 
@@ -143,7 +159,7 @@ class Login extends Component{
                                         text={'LOGIN'}
                                         customizeTextContainer={style.loginButton}
                                         customizeTextStyle={style.loginButtonText}
-                                        onClickHandle={()=>this.onClickLogin('Dashboard')}
+                                        onClickHandle={()=>this.onClickLogin()}
                                     />
                                 </View>
                                 
