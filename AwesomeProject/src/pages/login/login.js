@@ -59,6 +59,7 @@ class Login extends Component{
             <KeyboardAvoidingView
                 behavior={Platform.OS == "ios" ? "padding" : "height"}
                 style={style.keyboardAvoidingView}
+                keyboardVerticalOffset={-550}
             >
             <SafeAreaView style={style.container}>
                 <View style={style.subContainer}>
@@ -196,7 +197,9 @@ class Login extends Component{
                         </View>
                     </View>
                 </View>
+                
             </SafeAreaView>
+
             </KeyboardAvoidingView>
             
         )
