@@ -17,6 +17,10 @@ class Login extends Component{
         };
     }
 
+    componentDidMount = () => {
+    
+    }
+
     onClickLogin = (route) => {
 
         const {navigation} = this.props;

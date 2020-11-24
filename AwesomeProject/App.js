@@ -4,7 +4,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import {View, Text} from 'react-native';
 import MainScreen from './src/navigations/index';
 import FontStyle from './src/utilities/fonts/general';
-import Fsize from './src/utilities/fonts/responsive';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 Text.defaultProps = Text.defaultProps || {};

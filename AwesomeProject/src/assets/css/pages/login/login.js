@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 import FontStyle from '../../../../utilities/fonts/general';
 import colors from '../../../colors/pages/login/login';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import resFont from '../../../../utilities/fonts/responsive';
 
 const login = StyleSheet.create({
     container:{
