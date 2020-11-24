@@ -56,12 +56,11 @@ class Login extends Component{
         const {userID, password} = this.state;
 
         return(
+            <KeyboardAvoidingView
+                behavior={Platform.OS == "ios" ? "padding" : "height"}
+                style={style.keyboardAvoidingView}
+            >
             <SafeAreaView style={style.container}>
-                <KeyboardAvoidingView
-                    behavior={Platform.OS == "ios" ? "padding" : "height"}
-                    style={style.keyboardAvoidingView}
-                >
-
                 <View style={style.subContainer}>
                     <View style={style.header}>
 
@@ -197,8 +196,8 @@ class Login extends Component{
                         </View>
                     </View>
                 </View>
-                </KeyboardAvoidingView>
             </SafeAreaView>
+            </KeyboardAvoidingView>
             
         )
     }
