@@ -4,6 +4,7 @@ import style from '../../assets/css/pages/home/home';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
+import test_api from '../../api/test_api';
 
 import hamburgerImage from '../../assets/images/pages/home/menu.png';
 import logo from '../../assets/images/pages/home/logo-header.png';
@@ -90,8 +91,9 @@ class Home extends Component{
 
         let res;
         try{
-            res = await axios.get(`https://stub.od-tech.my/tech-assess/highlights`);
             
+            res = await test_api.getAPI();
+
             const {data} = res;
             const {highlights} = data;
 

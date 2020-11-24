@@ -8,6 +8,7 @@ const square = StyleSheet.create({
         height:'100%',
         width:'100%',
         borderRadius:hp(1),
+        padding:'4%',
         backgroundColor:colors.container,
         ...Platform.select({
             ios:{
@@ -27,7 +28,7 @@ const square = StyleSheet.create({
         width:'100%',
         justifyContent:'center',
         alignItems:'center',
-        paddingHorizontal:'4%',
+        
     },
     titleText:{
         textAlign:'center',
@@ -38,7 +39,7 @@ const square = StyleSheet.create({
     detailTextContainer:{
         height:'15%',
         width:'100%',
-        paddingHorizontal:'4%',
+        
     },
     detailText:{
         textAlign:'center',
@@ -47,7 +48,7 @@ const square = StyleSheet.create({
         color: colors.detailText
     },
     imageContainer:{
-        height:'45%',
+        height:'50%',
         width:'100%',
     },
     image:{
@@ -56,7 +57,7 @@ const square = StyleSheet.create({
         resizeMode:'contain'
     },
     buttonContainer:{
-        height:'20%',
+        height:'15%',
         width:'100%',
     },
     buttonSubContainer:{
