@@ -19,7 +19,7 @@ const square = StyleSheet.create({
                 shadowOpacity:0.1,
             },
             android:{
-                elevation: 2
+                elevation: 8
             }
         })
     },
