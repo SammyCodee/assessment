@@ -33,7 +33,7 @@ const square = StyleSheet.create({
     imageStyle:{
         borderTopLeftRadius:hp(1),
         borderTopRightRadius:hp(1),
-        resizeMode:'stretch'
+        resizeMode:'contain'
     },
     imageContentContainer:{
         height:'100%',
@@ -53,6 +53,7 @@ const square = StyleSheet.create({
     imageDetailContainer:{
         height:'50%',
         width:'100%',
+        borderWidth:1
     },
     imageDetailText:{
         fontFamily:FontStyle.bold,
